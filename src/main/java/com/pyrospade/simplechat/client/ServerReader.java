@@ -16,7 +16,7 @@ class ServerReader extends Thread {
 
     public void run() {
         Message m;
-        while(!(m = ms.readMessage()).getContent().equals("/dc")) System.out.println(m.getContent());
+        while(!(m = ms.readMessage()).getContent().equals("/dc")) System.out.println(m.getChatLine());
         close();
     }
 

@@ -1,6 +1,6 @@
 package com.pyrospade.simplechat.message;
 
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 /**
@@ -12,7 +12,14 @@ public class Message {
     private String content;
     private UUID authorId;
     private String authorName;
-    private Date date;
+    private long timestamp;
+
+    public Message(String content, String authorName, Long timestamp) {
+        this.content = content;
+        this.id = UUID.randomUUID();
+        this.authorName = authorName;
+        this.timestamp = timestamp;
+    }
 
     public Message(String content) {
         this.content = content;
@@ -37,7 +44,7 @@ public class Message {
     }
 
     public String getChatLine() {
-        return "[" + date.toString() + "] " + authorName + "> " + content;
+        return "[" + new Timestamp(timestamp).toString() + "] " + authorName + "> " + content;
     }
 
 }
