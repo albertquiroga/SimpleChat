@@ -23,8 +23,14 @@ class KeyboardReader extends Thread {
         keyboard = new BufferedReader(new InputStreamReader(System.in));
     }
 
+    KeyboardReader(MessageSocket ms, String authorName) {
+        this.ms = ms;
+        this.authorName = authorName;
+        keyboard = new BufferedReader(new InputStreamReader(System.in));
+    }
+
     public void run() {
-        fetchUserData();
+        if(authorName == null ) fetchUserData(); //If the thread has been created without a username, ask for one
         String line;
         while(!(line = readLine()).equals("/dc")) ms.sendMessage(new Message(line,authorName,System.currentTimeMillis()));
         ms.sendMessage(new Message("/dc"));
