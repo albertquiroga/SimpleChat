@@ -14,9 +14,7 @@ public class MainClient {
 
         MessageSocket ms = new MessageSocket(host, port);
 
-        new KeyboardReader(ms).start();
-        new ServerReader(ms).start();
-        /*KeyboardReader kr = new KeyboardReader(ms);
+        KeyboardReader kr = new KeyboardReader(ms);
         ServerReader sr = new ServerReader(ms);
 
         kr.start();
@@ -29,7 +27,7 @@ public class MainClient {
             e.printStackTrace();
         }
 
-        ms.close();*/
+        ms.close();
 
     }
 
