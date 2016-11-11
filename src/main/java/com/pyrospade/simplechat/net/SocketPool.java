@@ -28,6 +28,7 @@ public class SocketPool implements Observer {
     }
 
     public void removeSocket(UUID id) {
+        System.out.println("Removed connection from " + pool.get(id).getId());
         pool.remove(id);
     }
 

@@ -32,4 +32,12 @@ public class Message {
         return content;
     }
 
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public String getChatLine() {
+        return "[" + date.toString() + "] " + authorName + "> " + content;
+    }
+
 }

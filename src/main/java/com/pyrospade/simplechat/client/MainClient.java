@@ -16,6 +16,20 @@ public class MainClient {
 
         new KeyboardReader(ms).start();
         new ServerReader(ms).start();
+        /*KeyboardReader kr = new KeyboardReader(ms);
+        ServerReader sr = new ServerReader(ms);
+
+        kr.start();
+        sr.start();
+
+        try {
+            kr.join();
+            sr.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        ms.close();*/
 
     }
 

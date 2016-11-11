@@ -17,6 +17,7 @@ class ServerWorker extends Thread {
     ServerWorker(MessageSocket ms, MessagePool mp, SocketPool sp) {
         this.ms = ms;
         this.mp = mp;
+        this.sp = sp;
     }
 
     public void run() {
@@ -26,8 +27,13 @@ class ServerWorker extends Thread {
     }
 
     private void close() {
-        sp.removeSocket(ms.getId());
+        disconnect();
         ms.close();
+    }
+
+    private void disconnect() {
+        ms.sendMessage(new Message("/dc"));
+        sp.removeSocket(ms.getId());
     }
 
 }

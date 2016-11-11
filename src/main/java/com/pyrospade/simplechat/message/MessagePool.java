@@ -16,7 +16,7 @@ public class MessagePool extends Observable {
     }
 
     public void addMessage(Message m) {
-        System.out.println(m.getContent());
+        System.out.println("\t" + m.getContent());
         pool.put(m.getId(),m);
         setChanged();
         notifyObservers(m);
