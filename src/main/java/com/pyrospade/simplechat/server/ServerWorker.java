@@ -3,16 +3,18 @@ package com.pyrospade.simplechat.server;
 import com.pyrospade.simplechat.message.Message;
 import com.pyrospade.simplechat.message.MessagePool;
 import com.pyrospade.simplechat.net.MessageSocket;
+import com.pyrospade.simplechat.net.SocketPool;
 
 /**
  * Created by pyro_ on 10/11/2016.
  */
-public class ServerWorker extends Thread {
+class ServerWorker extends Thread {
 
     private MessageSocket ms;
     private MessagePool mp;
+    private SocketPool sp;
 
-    public ServerWorker(MessageSocket ms, MessagePool mp) {
+    ServerWorker(MessageSocket ms, MessagePool mp, SocketPool sp) {
         this.ms = ms;
         this.mp = mp;
     }
@@ -23,7 +25,8 @@ public class ServerWorker extends Thread {
         close();
     }
 
-    public void close() {
+    private void close() {
+        sp.removeSocket(ms.getId());
         ms.close();
     }
 

@@ -17,7 +17,7 @@ public class MainServer {
         mp.addObserver(mss.getSocketPool());
 
         while(true) {
-            new ServerWorker(mss.accept(),mp).start();
+            new ServerWorker(mss.accept(),mp,mss.getSocketPool()).start();
         }
 
     }
