@@ -10,12 +10,12 @@ import java.io.InputStreamReader;
 /**
  * Created by pyro_ on 10/11/2016.
  */
-public class KeyboardReader extends Thread {
+class KeyboardReader extends Thread {
 
     private BufferedReader keyboard;
     private MessageSocket ms;
 
-    public KeyboardReader(MessageSocket ms) {
+    KeyboardReader(MessageSocket ms) {
         this.ms = ms;
         keyboard = new BufferedReader(new InputStreamReader(System.in));
     }
@@ -27,7 +27,7 @@ public class KeyboardReader extends Thread {
         close();
     }
 
-    public String readLine() {
+    private String readLine() {
         try {
             return keyboard.readLine();
         } catch (IOException e) {
@@ -36,7 +36,7 @@ public class KeyboardReader extends Thread {
         }
     }
 
-    public void close() {
+    private void close() {
         try {
             keyboard.close();
         } catch (IOException e) {

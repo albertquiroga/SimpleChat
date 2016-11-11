@@ -6,11 +6,11 @@ import com.pyrospade.simplechat.net.MessageSocket;
 /**
  * Created by pyro_ on 10/11/2016.
  */
-public class ServerReader extends Thread {
+class ServerReader extends Thread {
 
     private MessageSocket ms;
 
-    public ServerReader(MessageSocket ms) {
+    ServerReader(MessageSocket ms) {
         this.ms = ms;
     }
 
@@ -20,7 +20,7 @@ public class ServerReader extends Thread {
         close();
     }
 
-    public void close() {
+    private void close() {
         ms.close();
     }
 

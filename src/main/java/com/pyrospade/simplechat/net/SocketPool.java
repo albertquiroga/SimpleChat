@@ -14,11 +14,11 @@ public class SocketPool implements Observer {
 
     private ConcurrentHashMap<UUID,MessageSocket> pool;
 
-    public SocketPool() {
+    SocketPool() {
         pool = new ConcurrentHashMap<UUID, MessageSocket>();
     }
 
-    public void addSocket(MessageSocket s) {
+    void addSocket(MessageSocket s) {
         System.out.println("New connection from " + s.getId());
         pool.put(s.getId(),s);
     }
@@ -31,7 +31,7 @@ public class SocketPool implements Observer {
         pool.remove(id);
     }
 
-    public void sendBroadcastMessage(Message m) {
+    private void sendBroadcastMessage(Message m) {
         for(UUID key : pool.keySet()) if (m.getId().compareTo(key) != 0) pool.get(key).sendMessage(m);
     }
 

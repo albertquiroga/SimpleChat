@@ -34,7 +34,7 @@ public class MessageSocket {
         }
     }
 
-    public MessageSocket(Socket s, UUID id) {
+    MessageSocket(Socket s, UUID id) {
         this.id = id;
         this.s = s;
         try {
