@@ -6,7 +6,6 @@ import com.pyrospade.simplechat.net.MessageSocket;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.security.Timestamp;
 
 /**
  * Created by pyro_ on 10/11/2016.
