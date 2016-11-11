@@ -43,6 +43,10 @@ public class Message {
         return authorName;
     }
 
+    public long getTimestamp() {
+        return timestamp;
+    }
+
     public String getChatLine() {
         return "[" + new Timestamp(timestamp).toString() + "] " + authorName + "> " + content;
     }
