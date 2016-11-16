@@ -8,11 +8,12 @@ import java.util.UUID;
  */
 public class Message {
 
-    private UUID id;
-    private String content;
-    private UUID authorId;
-    private String authorName;
-    private long timestamp;
+    //All these must be protected for the JSONManager to be able to access and read them (automatic JSON construction).
+    protected UUID id;
+    protected String content;
+    protected UUID authorId;
+    protected String authorName;
+    protected long timestamp;
 
     public Message(String content, String authorName, Long timestamp) {
         this.id = UUID.randomUUID();
