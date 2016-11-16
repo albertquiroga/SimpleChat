@@ -46,6 +46,7 @@ public class MessageSocket {
         pw.println(messageToJSON(m).toString());
     }
 
+    //TODO move messageToJSON and JSONToMessage to a new class and automate building process
     public JSONObject messageToJSON(Message m) {
         return new JSONObject()
                 .put("id", m.getId().toString())
