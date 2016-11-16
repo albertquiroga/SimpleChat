@@ -15,15 +15,20 @@ public class Message {
     private long timestamp;
 
     public Message(String content, String authorName, Long timestamp) {
-        this.content = content;
         this.id = UUID.randomUUID();
+        this.timestamp = timestamp; //TODO currentTimeMillis here
+        this.authorId = UUID.randomUUID();
         this.authorName = authorName;
-        this.timestamp = timestamp;
+        this.content = content;
     }
 
     public Message(String content) {
-        this.content = content;
+        //TODO Delete this constructor!!
         this.id = UUID.randomUUID();
+        this.timestamp = System.currentTimeMillis();
+        this.authorId = UUID.randomUUID();
+        this.authorName = "";
+        this.content = content;
     }
 
     public Message setAuthorId(UUID id){

@@ -48,7 +48,7 @@ public class MessageSocket {
     }
 
     public void sendMessage(Message m) {
-        pw.println(gb.create().toJson(m));
+        pw.println(messageToJSON(m).toString());
     }
 
     public JSONObject messageToJSON(Message m) {
@@ -66,7 +66,7 @@ public class MessageSocket {
     }
 
     public Message readMessage() {
-        return new Gson().fromJson(readLine(),Message.class).setAuthorId(id);
+        return JSONToMessage(readLine());
     }
 
     private String readLine() {
