@@ -3,6 +3,7 @@ package com.pyrospade.simplechat.net;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.pyrospade.simplechat.message.Message;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -48,6 +49,20 @@ public class MessageSocket {
 
     public void sendMessage(Message m) {
         pw.println(gb.create().toJson(m));
+    }
+
+    public JSONObject messageToJSON(Message m) {
+        return new JSONObject()
+                .put("id", m.getId().toString())
+                .put("timestamp", String.valueOf(m.getTimestamp()))
+                .put("authorId", m.getAuthorId().toString())
+                .put("authorName", m.getAuthorName())
+                .put("content", m.getContent());
+    }
+
+    public Message JSONToMessage(String json) {
+        JSONObject j = new JSONObject(json);
+        return new Message(j.getString("content"), j.getString("authorName"), j.getLong("timestamp"));
     }
 
     public Message readMessage() {

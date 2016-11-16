@@ -43,6 +43,10 @@ public class Message {
         return authorName;
     }
 
+    public UUID getAuthorId() {
+        return authorId;
+    }
+
     public long getTimestamp() {
         return timestamp;
     }
