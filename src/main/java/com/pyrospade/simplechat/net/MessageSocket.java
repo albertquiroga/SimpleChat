@@ -1,7 +1,5 @@
 package com.pyrospade.simplechat.net;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.pyrospade.simplechat.message.Message;
 import org.json.JSONObject;
 
@@ -21,7 +19,6 @@ public class MessageSocket {
     private Socket s;
     private BufferedReader br;
     private PrintWriter pw;
-    private GsonBuilder gb;
 
     public MessageSocket(String host, int port) {
         id = UUID.randomUUID();
@@ -29,7 +26,6 @@ public class MessageSocket {
             s = new Socket(host,port);
             br = new BufferedReader(new InputStreamReader(s.getInputStream()));
             pw = new PrintWriter(s.getOutputStream(),true);
-            gb = new GsonBuilder();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -41,7 +37,6 @@ public class MessageSocket {
         try {
             br = new BufferedReader(new InputStreamReader(s.getInputStream()));
             pw = new PrintWriter(s.getOutputStream(),true);
-            gb = new GsonBuilder();
         } catch (IOException e) {
             e.printStackTrace();
         }
