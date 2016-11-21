@@ -10,11 +10,11 @@ import java.util.UUID;
 public class Message {
 
     //All these must be protected for the JSONManager to be able to access and read them (automatic JSON construction).
-    protected final UUID id;
-    protected final String content;
+    protected UUID id;
+    protected String content;
     protected UUID authorId;
-    protected final String authorName;
-    protected final long timestamp;
+    protected String authorName;
+    protected long timestamp;
 
     public Message(String content, String authorName) {
         this.id = UUID.randomUUID();
@@ -26,6 +26,26 @@ public class Message {
 
     public Message setAuthorId(UUID id){
         this.authorId = id;
+        return this;
+    }
+
+    public Message setId(UUID id) {
+        this.id = id;
+        return this;
+    }
+
+    public Message setAuthorName(String authorName) {
+        this.authorName = authorName;
+        return this;
+    }
+
+    public Message setContent(String content) {
+        this.content = content;
+        return this;
+    }
+
+    public Message setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
         return this;
     }
 
@@ -51,6 +71,16 @@ public class Message {
 
     public String getChatLine() {
         return "[" + new Timestamp(timestamp).toString() + "] " + authorName + "> " + content;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj != null && Message.class.isInstance(obj)) return checkIfEquals((Message) obj);
+        return false;
+    }
+
+    public boolean checkIfEquals(Message m) {
+        return id.equals(m.getId()) && authorId.equals(m.getAuthorId()) && timestamp == m.getTimestamp() && authorName.equals(m.getAuthorName()) && content.equals(m.getContent());
     }
 
 }

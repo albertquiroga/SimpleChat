@@ -3,6 +3,7 @@ package com.pyrospade.simplechat.message;
 import org.json.JSONObject;
 
 import java.lang.reflect.Field;
+import java.util.UUID;
 
 /**
  * Created by aquirogb on 16/11/2016.
@@ -39,7 +40,10 @@ public class JSONManager {
 
     public static Message JSONToMessage(String json) {
         JSONObject j = new JSONObject(json);
-        return new Message(j.getString("content"), j.getString("authorName"));
+        return new Message(j.getString("content"), j.getString("authorName"))
+                .setId(UUID.fromString(j.getString("id")))
+                .setAuthorId(UUID.fromString(j.getString("authorId")))
+                .setTimestamp(j.getLong("timestamp"));
     }
 
 }
