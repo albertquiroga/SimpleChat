@@ -1,7 +1,7 @@
 package com.pyrospade.simplechat.net;
 
+import com.pyrospade.simplechat.message.JSONManager;
 import com.pyrospade.simplechat.message.Message;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -43,26 +43,11 @@ public class MessageSocket {
     }
 
     public void sendMessage(Message m) {
-        pw.println(messageToJSON(m).toString());
-    }
-
-    //TODO move messageToJSON and JSONToMessage to a new class and automate building process
-    public JSONObject messageToJSON(Message m) {
-        return new JSONObject()
-                .put("id", m.getId().toString())
-                .put("timestamp", String.valueOf(m.getTimestamp()))
-                .put("authorId", m.getAuthorId().toString())
-                .put("authorName", m.getAuthorName())
-                .put("content", m.getContent());
-    }
-
-    public Message JSONToMessage(String json) {
-        JSONObject j = new JSONObject(json);
-        return new Message(j.getString("content"), j.getString("authorName"), j.getLong("timestamp"));
+        pw.println(JSONManager.messageToJSON(m).toString());
     }
 
     public Message readMessage() {
-        return JSONToMessage(readLine());
+        return JSONManager.JSONToMessage(readLine());
     }
 
     private String readLine() {

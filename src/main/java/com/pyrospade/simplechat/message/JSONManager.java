@@ -21,11 +21,25 @@ public class JSONManager {
         return jo;
     }
 
+    /*public JSONObject messageToJSON(Message m) {
+        return new JSONObject()
+                .put("id", m.getId().toString())
+                .put("timestamp", String.valueOf(m.getTimestamp()))
+                .put("authorId", m.getAuthorId().toString())
+                .put("authorName", m.getAuthorName())
+                .put("content", m.getContent());
+    }*/
+
     /*public static Message JSONToMessage (String jsonStr) {
         JSONObject json = new JSONObject(jsonStr);
         for (String k : json.keySet()) {
 
         }
     }*/
+
+    public static Message JSONToMessage(String json) {
+        JSONObject j = new JSONObject(json);
+        return new Message(j.getString("content"), j.getString("authorName"), j.getLong("timestamp"));
+    }
 
 }
