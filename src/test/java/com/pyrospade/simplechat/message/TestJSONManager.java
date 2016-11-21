@@ -19,20 +19,18 @@ public class TestJSONManager {
 
     @Test
     public void testMessageFromJSON() {
-
         Message m = new Message(content, authorName).setId(id1).setAuthorId(id2).setTimestamp(timestamp);
         String mJSON = "{\"authorName\":\"" + authorName + "\",\"id\":\"" + id1.toString() + "\",\"authorId\":\"" + id2.toString() + "\",\"content\":\"" + content + "\",\"timestamp\":\"" + String.valueOf(timestamp) + "\"}";
 
         assertEquals("Testing JSON to Message construction", m, JSONManager.JSONToMessage(mJSON));
-
     }
 
     @Test
     public void testMessageToJSON() {
-
         Message m = new Message(content, authorName).setId(id1).setAuthorId(id2).setTimestamp(timestamp);
         String mJSON = "{\"authorName\":\"" + authorName + "\",\"id\":\"" + id1.toString() + "\",\"authorId\":\"" + id2.toString() + "\",\"content\":\"" + content + "\",\"timestamp\":\"" + String.valueOf(timestamp) + "\"}";
 
         assertEquals("Testing Message to JSON conversion", mJSON, JSONManager.messageToJSON(m).toString());
     }
+
 }
