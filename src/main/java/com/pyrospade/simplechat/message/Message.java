@@ -15,9 +15,9 @@ public class Message {
     protected String authorName;
     protected long timestamp;
 
-    public Message(String content, String authorName, Long timestamp) {
+    public Message(String content, String authorName) {
         this.id = UUID.randomUUID();
-        this.timestamp = timestamp; //TODO currentTimeMillis here
+        this.timestamp = System.currentTimeMillis();
         this.authorId = UUID.randomUUID();
         this.authorName = authorName;
         this.content = content;

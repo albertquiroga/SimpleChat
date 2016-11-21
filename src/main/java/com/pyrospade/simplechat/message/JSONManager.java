@@ -39,7 +39,7 @@ public class JSONManager {
 
     public static Message JSONToMessage(String json) {
         JSONObject j = new JSONObject(json);
-        return new Message(j.getString("content"), j.getString("authorName"), j.getLong("timestamp"));
+        return new Message(j.getString("content"), j.getString("authorName"));
     }
 
 }

@@ -1,7 +1,5 @@
 package com.pyrospade.simplechat.server;
 
-import com.pyrospade.simplechat.message.JSONManager;
-import com.pyrospade.simplechat.message.Message;
 import com.pyrospade.simplechat.message.MessagePool;
 import com.pyrospade.simplechat.net.MessageServerSocket;
 
@@ -14,7 +12,6 @@ public class MainServer {
 
     public static void main (String[] args) {
 
-        System.out.println(JSONManager.messageToJSON(new Message("hello", "mark", System.currentTimeMillis())).toString());
         MessageServerSocket mss = new MessageServerSocket(port);
         MessagePool mp = new MessagePool();
         mp.addObserver(mss.getSocketPool());

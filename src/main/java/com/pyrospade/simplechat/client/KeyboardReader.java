@@ -31,7 +31,7 @@ class KeyboardReader extends Thread {
     public void run() {
         if(authorName == null ) fetchUserData(); //If the thread has been created without a username, ask for one
         String line;
-        while(!(line = readLine()).equals("/dc")) ms.sendMessage(new Message(line,authorName,System.currentTimeMillis()));
+        while(!(line = readLine()).equals("/dc")) ms.sendMessage(new Message(line,authorName));
         ms.sendMessage(new Message("/dc"));
         close();
     }
