@@ -33,7 +33,7 @@ public class SocketPool implements Observer {
     }
 
     private void sendBroadcastMessage(Message m) {
-        for(UUID key : pool.keySet()) if (m.getId().compareTo(key) != 0) pool.get(key).sendMessage(m);
+        for(UUID key : pool.keySet()) if (m.getAuthorId().compareTo(key) != 0) pool.get(key).sendMessage(m);
     }
 
     public void update(Observable o, Object arg) {

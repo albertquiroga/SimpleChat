@@ -10,9 +10,9 @@ import java.util.UUID;
 public class Message {
 
     //All these must be protected for the JSONManager to be able to access and read them (automatic JSON construction).
-    protected UUID id;
+    protected final UUID id;
     protected final String content;
-    protected final UUID authorId;
+    protected UUID authorId;
     protected final String authorName;
     protected final long timestamp;
 
@@ -25,7 +25,7 @@ public class Message {
     }
 
     public Message setAuthorId(UUID id){
-        this.id = id;
+        this.authorId = id;
         return this;
     }
 

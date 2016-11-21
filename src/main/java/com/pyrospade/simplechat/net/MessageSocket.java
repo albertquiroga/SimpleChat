@@ -47,7 +47,7 @@ public class MessageSocket {
     }
 
     public Message readMessage() {
-        return JSONManager.JSONToMessage(readLine());
+        return JSONManager.JSONToMessage(readLine()).setAuthorId(id);
     }
 
     private String readLine() {
