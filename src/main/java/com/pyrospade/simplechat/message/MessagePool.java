@@ -9,10 +9,10 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class MessagePool extends Observable {
 
-    private ConcurrentHashMap<UUID, Message> pool;
+    private final ConcurrentHashMap<UUID, Message> pool;
 
     public MessagePool() {
-        pool = new ConcurrentHashMap<UUID, Message>();
+        pool = new ConcurrentHashMap<>();
     }
 
     public void addMessage(Message m) {

@@ -8,7 +8,7 @@ import com.pyrospade.simplechat.net.MessageSocket;
  */
 class ServerReader extends Thread {
 
-    private MessageSocket ms;
+    private final MessageSocket ms;
 
     ServerReader(MessageSocket ms) {
         this.ms = ms;

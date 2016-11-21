@@ -12,8 +12,8 @@ import java.io.InputStreamReader;
  */
 class KeyboardReader extends Thread {
 
-    private BufferedReader keyboard;
-    private MessageSocket ms;
+    private final BufferedReader keyboard;
+    private final MessageSocket ms;
 
     private String authorName;
 

@@ -10,7 +10,7 @@ import java.util.UUID;
 public class MessageServerSocket {
 
     private ServerSocket ss;
-    private SocketPool sp;
+    private final SocketPool sp;
 
     public MessageServerSocket(int port) {
         this.sp = new SocketPool();

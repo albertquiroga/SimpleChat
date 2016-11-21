@@ -12,10 +12,10 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class SocketPool implements Observer {
 
-    private ConcurrentHashMap<UUID,MessageSocket> pool;
+    private final ConcurrentHashMap<UUID,MessageSocket> pool;
 
     SocketPool() {
-        pool = new ConcurrentHashMap<UUID, MessageSocket>();
+        pool = new ConcurrentHashMap<>();
     }
 
     void addSocket(MessageSocket s) {

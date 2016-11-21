@@ -5,7 +5,7 @@ import com.pyrospade.simplechat.net.MessageSocket;
 /**
  * Created by pyro_ on 10/11/2016.
  */
-public class MainClient {
+class MainClient {
 
     private static final String host = "localhost";
     private static final int port = 8959;

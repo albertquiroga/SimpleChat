@@ -10,9 +10,9 @@ import com.pyrospade.simplechat.net.SocketPool;
  */
 class ServerWorker extends Thread {
 
-    private MessageSocket ms;
-    private MessagePool mp;
-    private SocketPool sp;
+    private final MessageSocket ms;
+    private final MessagePool mp;
+    private final SocketPool sp;
 
     ServerWorker(MessageSocket ms, MessagePool mp, SocketPool sp) {
         this.ms = ms;

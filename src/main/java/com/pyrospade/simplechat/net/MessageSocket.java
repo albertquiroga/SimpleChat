@@ -15,7 +15,7 @@ import java.util.UUID;
  */
 public class MessageSocket {
 
-    private UUID id;
+    private final UUID id;
     private Socket s;
     private BufferedReader br;
     private PrintWriter pw;

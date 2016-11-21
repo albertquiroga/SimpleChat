@@ -6,14 +6,15 @@ import java.util.UUID;
 /**
  * Created by pyro_ on 10/11/2016.
  */
+@SuppressWarnings("WeakerAccess")
 public class Message {
 
     //All these must be protected for the JSONManager to be able to access and read them (automatic JSON construction).
     protected UUID id;
-    protected String content;
-    protected UUID authorId;
-    protected String authorName;
-    protected long timestamp;
+    protected final String content;
+    protected final UUID authorId;
+    protected final String authorName;
+    protected final long timestamp;
 
     public Message(String content, String authorName) {
         this.id = UUID.randomUUID();
