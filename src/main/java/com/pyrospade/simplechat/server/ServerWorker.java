@@ -32,7 +32,7 @@ class ServerWorker extends Thread {
     }
 
     private void disconnect() {
-        ms.sendMessage(new Message("/dc"));
+        ms.sendMessage(new Message("/dc","server"));
         sp.removeSocket(ms.getId());
     }
 

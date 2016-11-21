@@ -23,15 +23,6 @@ public class Message {
         this.content = content;
     }
 
-    public Message(String content) {
-        //TODO Delete this constructor!!
-        this.id = UUID.randomUUID();
-        this.timestamp = System.currentTimeMillis();
-        this.authorId = UUID.randomUUID();
-        this.authorName = "";
-        this.content = content;
-    }
-
     public Message setAuthorId(UUID id){
         this.id = id;
         return this;

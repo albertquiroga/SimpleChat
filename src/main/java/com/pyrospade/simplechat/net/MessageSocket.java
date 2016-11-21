@@ -64,7 +64,6 @@ public class MessageSocket {
     }
 
     public void close() {
-        disconnect();
         pw.close();
         try {
             br.close();
@@ -72,10 +71,6 @@ public class MessageSocket {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private void disconnect() {
-        sendMessage(new Message("/dc"));
     }
 
 }
