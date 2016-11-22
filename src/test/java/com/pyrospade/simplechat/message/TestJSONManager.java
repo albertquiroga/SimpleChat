@@ -1,5 +1,6 @@
 package com.pyrospade.simplechat.message;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.UUID;
@@ -11,11 +12,20 @@ import static org.junit.Assert.assertEquals;
  */
 public class TestJSONManager {
 
-    private final static UUID id1 = UUID.randomUUID();
-    private final static UUID id2 = UUID.randomUUID();
-    private final static long timestamp = System.currentTimeMillis();
-    private final static String authorName = "mark";
-    private final static String content = "hello, world!";
+    private static UUID id1;
+    private static UUID id2;
+    private static long timestamp;
+    private static String authorName;
+    private static String content;
+
+    @BeforeClass
+    public static void setup() {
+        id1 = UUID.randomUUID();
+        id2 = UUID.randomUUID();
+        timestamp = System.currentTimeMillis();
+        authorName = "mark";
+        content = "hello, world!";
+    }
 
     @Test
     public void testMessageFromJSON() {

@@ -30,4 +30,8 @@ public class MessagePool extends Observable {
         pool.remove(id);
     }
 
+    public int getSize() {
+        return pool.size();
+    }
+
 }

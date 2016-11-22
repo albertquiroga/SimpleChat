@@ -8,13 +8,13 @@ import com.pyrospade.simplechat.net.SocketPool;
 /**
  * Created by pyro_ on 10/11/2016.
  */
-class ServerWorker extends Thread {
+public class ServerWorker extends Thread {
 
     private final MessageSocket ms;
     private final MessagePool mp;
     private final SocketPool sp;
 
-    ServerWorker(MessageSocket ms, MessagePool mp, SocketPool sp) {
+    public ServerWorker(MessageSocket ms, MessagePool mp, SocketPool sp) {
         this.ms = ms;
         this.mp = mp;
         this.sp = sp;
