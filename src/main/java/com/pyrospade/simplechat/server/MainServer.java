@@ -6,7 +6,7 @@ import com.pyrospade.simplechat.net.MessageServerSocket;
 /**
  * Created by pyro_ on 10/11/2016.
  */
-class MainServer {
+public class MainServer {
 
     private static final int port = 8959;
 

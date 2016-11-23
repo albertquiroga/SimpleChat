@@ -42,8 +42,9 @@ public class MessageSocket {
         }
     }
 
-    public void sendMessage(Message m) {
+    public boolean sendMessage(Message m) {
         pw.println(JSONManager.messageToJSON(m).toString());
+        return true;
     }
 
     public Message readMessage() {
